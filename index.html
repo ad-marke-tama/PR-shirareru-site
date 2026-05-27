@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="テレビ・新聞などのメディア露出を通じて、まだ知られていない商品・サービス・会社の価値を届けるPR支援サイトです。">
+    <title>知られる企画 | 知られていないを機会に変えるPR支援</title>
+    <style>
+      :root {
+        --blue: #064bd8;
+        --blue-deep: #003895;
+        --blue-soft: #eef6ff;
+        --red: #d90011;
+        --orange: #ff9100;
+        --orange-dark: #f27d00;
+        --ink: #101826;
+        --muted: #5f6f86;
+        --line: #d8e3f5;
+        --shadow: 0 18px 38px rgba(14, 45, 101, 0.14);
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 84px;
+      }
+      
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+        line-height: 1.75;
+        background: #fff;
+      }
+      
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .container {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        min-height: 70px;
+        padding: 14px clamp(20px, 5vw, 76px);
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid rgba(216, 227, 245, 0.75);
+        backdrop-filter: blur(16px);
+      }
+      
+      .brand {
+        min-width: max-content;
+        color: #050812;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+      
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: clamp(22px, 5vw, 62px);
+        width: 100%;
+        font-size: 14px;
+        font-weight: 900;
+      }
+      
+      .hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(380px, 1.05fr);
+        gap: 20px;
+        align-items: center;
+        min-height: 560px;
+        padding: clamp(44px, 6vw, 74px) clamp(20px, 5vw, 76px) 36px;
+        overflow: hidden;
+        background:
+          linear-gradient(103deg, var(--blue) 0 3.3%, transparent 3.5%),
+          linear-gradient(115deg, #fff 0%, #fff 60%, #f3f8ff 100%);
+      }
+      
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(42px, 5.4vw, 68px);
+        line-height: 1.28;
+        letter-spacing: 0;
+      }
+      
+      .hero h1 span,
+      .final-cta span {
+        color: var(--red);
+      }
+      
+      .hero-ribbon {
+        display: inline;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: clamp(16px, 1.9vw, 21px);
+        font-weight: 900;
+        line-height: 2.05;
+        background: var(--blue);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        box-shadow: 7px 7px 0 rgba(6, 75, 216, 0.16);
+      }
+      
+      .hero-text {
+        max-width: 650px;
+        margin: 22px 0 0;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.9;
+      }
+      
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-top: 28px;
+      }
+      
+      .hero-actions p,
+      .final-grid small {
+        margin: 0;
+        color: #1f2c3d;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        min-width: 250px;
+        padding: 16px 32px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+        border-radius: 999px;
+        box-shadow: 0 14px 28px rgba(242, 125, 0, 0.24);
+      }
+      
+      .button::after {
+        content: "→";
+        font-size: 22px;
+        line-height: 1;
+      }
+      
+      .button.large {
+        min-width: 330px;
+        font-size: 18px;
+      }
+      
+      .hero-visual {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .hero-visual img {
+        display: block;
+        width: min(100%, 780px);
+        margin-left: auto;
+        filter: drop-shadow(0 24px 28px rgba(3, 52, 147, 0.16));
+      }
+      
+      .section {
+        padding: clamp(44px, 6vw, 72px) 0;
+      }
+      
+      .band {
+        padding: 34px 0;
+        background:
+          radial-gradient(circle at 0% 50%, rgba(6, 75, 216, 0.14), transparent 35%),
+          linear-gradient(135deg, #eef6ff, #dceaff);
+      }
+      
+      .problem h2,
+      .section-title {
+        margin: 0 0 26px;
+        color: var(--ink);
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.45;
+        text-align: center;
+      }
+      
+      .section-title,
+      .faq .section-title {
+        color: var(--blue);
+      }
+      
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      
+      .problem-card,
+      .case-card,
+      .faq-list,
+      .mini-box {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+      
+      .problem-card {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 8px 18px;
+        min-height: 150px;
+        padding: 24px;
+      }
+      
+      .asset-icon {
+        display: block;
+        width: 54px;
+        height: 54px;
+        object-fit: contain;
+      }
+      
+      .service-icon {
+        display: block;
+        width: 58px;
+        height: 58px;
+        margin: 0 auto 12px;
+        object-fit: contain;
+      }
+      
+      .reason-icon {
+        display: block;
+        width: 58px;
+        height: 58px;
+        margin: 0 auto 12px;
+        object-fit: contain;
+      }
+      
+      .problem-card h3 {
+        margin: 0;
+        font-size: 21px;
+        line-height: 1.45;
+      }
+      
+      .problem-card p {
+        grid-column: 2;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      
+      .center-note {
+        margin: 20px 0 0;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 900;
+      }
+      
+      .center-note::first-letter {
+        color: var(--blue);
+      }
+      
+      .insight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      
+      .insight article + article {
+        padding-left: 30px;
+        border-left: 1px solid var(--line);
+      }
+      
+      .insight h2 {
+        margin: 0 0 12px;
+        font-size: 23px;
+        line-height: 1.45;
+      }
+      
+      .insight p {
+        margin: 0 0 20px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      
+      .mini-box {
+        padding: 20px;
+      }
+      
+      .mini-box h3 {
+        margin: 0 0 8px;
+        color: var(--blue);
+        font-size: 15px;
+      }
+      
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 44px 1fr;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      
+      .compare div {
+        padding: 16px;
+        text-align: center;
+      }
+      
+      .compare strong {
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: var(--blue);
+      }
+      
+      .compare b,
+      .compare span,
+      .compare small {
+        display: block;
+      }
+      
+      .compare b {
+        color: var(--blue);
+      }
+      
+      .reuse-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .reuse-grid span {
+        display: grid;
+        gap: 6px;
+        place-items: center;
+        padding: 12px 8px;
+        color: var(--blue);
+        text-align: center;
+        font-size: 13px;
+        font-weight: 900;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      
+      .reuse-grid img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+      }
+      
+      .service {
+        padding-bottom: 34px;
+      }
+      
+      .service-steps {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      
+      .service-steps li {
+        position: relative;
+        padding: 4px 8px 0;
+        text-align: center;
+      }
+      
+      .service-steps li + li::before {
+        position: absolute;
+        top: 42px;
+        left: -18px;
+        content: "→";
+        font-size: 24px;
+        font-weight: 900;
+      }
+      
+      .service-steps span {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 18px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        background: var(--blue);
+        border-radius: 50%;
+      }
+      
+      .service-steps h3 {
+        margin: 0 0 8px;
+        font-size: 15px;
+        line-height: 1.45;
+      }
+      
+      .service-steps p {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      
+      .works {
+        padding-top: 28px;
+        background: linear-gradient(180deg, #fff, #f7faff);
+      }
+      
+      .works-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      
+      .case-card {
+        padding: 24px;
+      }
+      
+      .case-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+      }
+      
+      .case-head span {
+        padding: 5px 11px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        background: var(--blue);
+      }
+      
+      .case-head h3 {
+        margin: 0;
+        font-size: 22px;
+      }
+      
+      .case-card p {
+        margin: 0 0 18px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      
+      .media-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      
+      .media-list span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 6px 10px;
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.35;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+      }
+      
+      .media-list span::before {
+        content: "・";
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      
+      .stats-grid div {
+        min-height: 112px;
+        padding: 14px 8px;
+        text-align: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      
+      .stats-grid img {
+        display: block;
+        width: 36px;
+        height: 36px;
+        margin: 0 auto 8px;
+        object-fit: contain;
+      }
+      
+      .stats-grid b {
+        color: var(--red);
+        font-size: 40px;
+        line-height: 1;
+      }
+      
+      .stats-grid strong,
+      .stats-grid small {
+        display: block;
+        font-weight: 900;
+      }
+      
+      .stats-grid small {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      
+      .reason-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      
+      .reason-grid article {
+        padding: 0 28px;
+        text-align: center;
+      }
+      
+      .reason-grid article + article {
+        border-left: 1px solid var(--line);
+      }
+      
+      .reason-grid h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        line-height: 1.45;
+      }
+      
+      .reason-grid p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      
+      .faq {
+        padding-top: 30px;
+      }
+      
+      .faq-list {
+        overflow: hidden;
+      }
+      
+      .faq-list details + details {
+        border-top: 1px solid var(--line);
+      }
+      
+      .faq-list summary {
+        position: relative;
+        display: block;
+        padding: 18px 46px 18px 54px;
+        cursor: pointer;
+        font-weight: 900;
+        list-style: none;
+      }
+      
+      .faq-list summary::-webkit-details-marker {
+        display: none;
+      }
+      
+      .faq-list summary::before {
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        display: grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        content: "Q";
+        color: #fff;
+        font-size: 12px;
+        background: var(--blue);
+        border-radius: 50%;
+      }
+      
+      .faq-list summary::after {
+        position: absolute;
+        top: 20px;
+        right: 22px;
+        content: "⌄";
+        font-size: 20px;
+      }
+      
+      .faq-list details[open] summary::after {
+        transform: rotate(180deg);
+      }
+      
+      .faq-list p {
+        position: relative;
+        margin: -2px 0 20px;
+        padding: 0 46px 0 54px;
+        color: #243247;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      
+      .faq-list p::before {
+        position: absolute;
+        left: 23px;
+        display: grid;
+        width: 22px;
+        height: 22px;
+        place-items: center;
+        content: "A";
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        background: #eef4ff;
+        border-radius: 50%;
+      }
+      
+      .final-cta {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .final-cta::after {
+        position: absolute;
+        right: -70px;
+        bottom: -80px;
+        width: 240px;
+        height: 170px;
+        content: "";
+        background: linear-gradient(135deg, #00a4ff, var(--blue));
+        transform: rotate(-18deg);
+      }
+      
+      .final-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(390px, 0.9fr) minmax(300px, 1fr) auto;
+        gap: 30px;
+        align-items: center;
+      }
+      
+      .final-grid h2 {
+        margin: 0;
+        min-width: 390px;
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1.36;
+      }
+      
+      .final-keep {
+        font-weight: inherit;
+        white-space: nowrap;
+      }
+      
+      .final-keep strong {
+        color: var(--red);
+      }
+      
+      .final-grid p {
+        margin: 0;
+        font-weight: 900;
+        line-height: 1.9;
+      }
+      
+      .final-grid small {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+      
+      .site-footer {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        padding: 28px 20px 42px;
+        color: var(--muted);
+        font-weight: 900;
+        background: #fff;
+        border-top: 1px solid var(--line);
+      }
+      
+      @media (max-width: 980px) {
+        html {
+          scroll-padding-top: 112px;
+        }
+      
+        .site-header {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 10px;
+        }
+      
+        .site-nav {
+          justify-content: flex-start;
+          gap: 18px;
+          overflow-x: auto;
+          width: 100%;
+          padding-bottom: 2px;
+          white-space: nowrap;
+        }
+      
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+      
+        .hero-visual img {
+          width: min(100%, 640px);
+        }
+      
+        .problem-grid,
+        .insight-grid,
+        .works-grid,
+        .reason-grid,
+        .final-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .insight article + article,
+        .reason-grid article + article {
+          padding-left: 0;
+          border-left: 0;
+        }
+      
+        .service-steps {
+          grid-template-columns: 1fr 1fr;
+        }
+      
+        .service-steps li + li::before {
+          display: none;
+        }
+      
+        .final-grid {
+          justify-items: start;
+        }
+      }
+      
+      @media (max-width: 640px) {
+        .container {
+          width: min(100% - 28px, 560px);
+        }
+      
+        .site-header {
+          min-height: auto;
+          padding: 12px 16px;
+        }
+      
+        .brand {
+          font-size: 18px;
+        }
+      
+        .site-nav {
+          font-size: 12px;
+        }
+      
+        .hero {
+          padding: 32px 16px 22px;
+          background:
+            linear-gradient(96deg, var(--blue) 0 8%, transparent 8.3%),
+            linear-gradient(180deg, #fff, #eef5ff);
+        }
+      
+        .hero h1 {
+          padding-left: 16px;
+          font-size: 38px;
+        }
+      
+        .hero-ribbon {
+          font-size: 14px;
+        }
+      
+        .hero-text {
+          font-size: 15px;
+          line-height: 1.85;
+        }
+      
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+      
+        .button,
+        .button.large {
+          width: 100%;
+          min-width: 0;
+        }
+      
+        .hero-visual {
+          margin: 14px -16px -8px 0;
+        }
+      
+        .hero-visual img {
+          width: min(100%, 560px);
+        }
+      
+        .final-grid h2 {
+          min-width: 0;
+          width: 100%;
+          font-size: 28px;
+        }
+      
+        .section {
+          padding: 40px 0;
+        }
+      
+        .problem-card {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      
+        .problem-card p {
+          grid-column: auto;
+        }
+      
+        .asset-icon {
+          margin: 0 auto;
+        }
+      
+        .service-steps,
+        .stats-grid,
+        .media-list,
+        .reuse-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .case-card {
+          padding: 20px;
+        }
+      
+        .site-footer {
+          align-items: center;
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          scroll-padding-top: 0;
+        }
+
+        body {
+          min-width: 0;
+        }
+
+        .container {
+          width: min(100% - 28px, 560px);
+        }
+
+        .site-header {
+          position: static;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 14px 16px;
+        }
+
+        .brand {
+          font-size: 18px;
+          line-height: 1.4;
+        }
+
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          gap: 10px 18px;
+          overflow: visible;
+          width: 100%;
+          padding-bottom: 0;
+          font-size: 12px;
+          line-height: 1.5;
+          white-space: normal;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          min-height: auto;
+          padding: 32px 16px 28px;
+          overflow: visible;
+          background:
+            linear-gradient(96deg, var(--blue) 0 7%, transparent 7.3%),
+            linear-gradient(180deg, #fff, #eef5ff);
+        }
+
+        .hero h1 {
+          max-width: 100%;
+          padding-left: 14px;
+          margin-bottom: 16px;
+          font-size: clamp(34px, 10vw, 40px);
+          line-height: 1.28;
+        }
+
+        .hero-ribbon {
+          display: inline;
+          padding: 4px 8px;
+          font-size: 14px;
+          line-height: 2;
+          box-shadow: 5px 5px 0 rgba(6, 75, 216, 0.14);
+          box-decoration-break: clone;
+          -webkit-box-decoration-break: clone;
+        }
+
+        .hero-text {
+          max-width: 100%;
+          margin-top: 18px;
+          font-size: 14px;
+          line-height: 1.9;
+          overflow-wrap: anywhere;
+        }
+
+        .hero-actions {
+          align-items: center;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 22px;
+        }
+
+        .hero-actions p {
+          width: 100%;
+          text-align: center;
+        }
+
+        .button,
+        .button.large {
+          width: min(100%, 340px);
+          min-width: 0;
+          min-height: 52px;
+          padding: 14px 22px;
+          font-size: 15px;
+        }
+
+        .hero-visual {
+          width: 100%;
+          margin: 0;
+        }
+
+        .hero-visual img {
+          width: 100%;
+          max-width: 560px;
+          height: auto;
+          margin: 0 auto;
+        }
+
+        .section,
+        .band {
+          padding: 38px 0;
+        }
+
+        .problem h2,
+        .section-title {
+          margin-bottom: 18px;
+          font-size: 23px;
+          line-height: 1.55;
+        }
+
+        .problem-grid,
+        .insight-grid,
+        .works-grid,
+        .reason-grid,
+        .final-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .problem-card {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          gap: 10px;
+          min-height: 0;
+          padding: 18px;
+          text-align: center;
+        }
+
+        .asset-icon {
+          width: 44px;
+          height: 44px;
+          margin: 0;
+        }
+
+        .problem-card h3 {
+          font-size: 18px;
+          line-height: 1.45;
+        }
+
+        .problem-card p {
+          grid-column: 1 / -1;
+          font-size: 13px;
+          line-height: 1.8;
+        }
+
+        .center-note {
+          font-size: 14px;
+          line-height: 1.8;
+        }
+
+        .insight article + article,
+        .reason-grid article + article {
+          padding-left: 0;
+          border-left: 0;
+        }
+
+        .insight article,
+        .case-card,
+        .final-grid {
+          text-align: center;
+        }
+
+        .insight h2 {
+          font-size: 20px;
+          line-height: 1.5;
+        }
+
+        .insight p,
+        .case-card p,
+        .reason-grid p {
+          font-size: 13px;
+          line-height: 1.85;
+        }
+
+        .mini-box {
+          padding: 18px;
+          text-align: center;
+        }
+
+        .compare {
+          grid-template-columns: 1fr;
+        }
+
+        .compare strong {
+          min-height: 34px;
+        }
+
+        .reuse-grid,
+        .stats-grid,
+        .media-list,
+        .logo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .reuse-grid {
+          gap: 10px;
+        }
+
+        .reuse-grid span,
+        .media-list span {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+
+        .service-steps {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .service-steps li {
+          padding: 0 4px;
+        }
+
+        .service-steps li + li::before {
+          display: none;
+        }
+
+        .service-icon {
+          width: 52px;
+          height: 52px;
+        }
+
+        .service-steps h3 {
+          font-size: 16px;
+        }
+
+        .service-steps p {
+          font-size: 13px;
+          line-height: 1.75;
+        }
+
+        .case-card {
+          padding: 18px;
+        }
+
+        .case-head {
+          align-items: center;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .case-head h3 {
+          font-size: 20px;
+        }
+
+        .stats-grid {
+          gap: 10px;
+        }
+
+        .stats-grid div {
+          min-height: 0;
+          padding: 14px 10px;
+        }
+
+        .reason-grid article {
+          padding: 0;
+        }
+
+        .reason-icon {
+          width: 52px;
+          height: 52px;
+        }
+
+        .reason-grid h3 {
+          font-size: 18px;
+          line-height: 1.55;
+        }
+
+        .faq-list {
+          overflow: visible;
+        }
+
+        .faq-list summary {
+          padding: 16px 40px 16px 50px;
+          font-size: 14px;
+          line-height: 1.65;
+          overflow-wrap: anywhere;
+        }
+
+        .faq-list summary::before {
+          top: 17px;
+          left: 16px;
+        }
+
+        .faq-list summary::after {
+          top: 20px;
+          right: 16px;
+        }
+
+        .faq-list p {
+          margin-bottom: 18px;
+          padding: 0 18px 0 50px;
+          font-size: 13px;
+          line-height: 1.85;
+          overflow-wrap: anywhere;
+        }
+
+        .faq-list p::before {
+          left: 18px;
+        }
+
+        .final-cta {
+          overflow: visible;
+        }
+
+        .final-cta::after {
+          right: 0;
+          bottom: 0;
+          width: 88px;
+          height: 72px;
+          clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          transform: none;
+        }
+
+        .final-grid {
+          justify-items: stretch;
+        }
+
+        .final-grid h2 {
+          width: 100%;
+          min-width: 0;
+          font-size: 27px;
+          line-height: 1.45;
+          text-align: center;
+        }
+
+        .final-keep {
+          white-space: normal;
+        }
+
+        .final-grid p {
+          font-size: 14px;
+          line-height: 1.9;
+          text-align: center;
+        }
+
+        .final-grid small {
+          text-align: center;
+        }
+
+        .site-footer {
+          align-items: center;
+          flex-direction: column;
+          gap: 10px;
+          padding: 24px 16px 34px;
+          text-align: center;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">知られる企画</a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="#service">サービス内容</a>
+        <a href="#works">実績・事例</a>
+        <a href="#reason">選ばれる理由</a>
+        <a href="#faq">よくある質問</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="top" class="hero">
+        <div class="hero-copy">
+          <h1>“知られてない”は、<br>最大の<span>機会損失</span>。</h1>
+          <p class="hero-ribbon">テレビ・新聞の取材で、あなたの会社を “信頼される存在” へ。</p>
+          <p class="hero-text">通常、広告を行えば何十万円、何百万円とかかるところ、取材というカタチで<br>マスメディアに取り上げてもらえば一切お金がかかりません。<br>あなたの会社が広告費ゼロで全国区の知名度を得ることができてしまうのです。</p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:ad.marke.tama@gmail.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">まずは無料相談する</a>
+            <p>相談は無料です。<br>お気軽にご相談ください。</p>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/fv-tv-newspaper-transparent.png?v=2" alt="">
+        </div>
+      </section>
+
+      <section class="problem band">
+        <div class="container">
+          <h2>良い商品・サービス・会社なのに、こんなお悩みはありませんか？</h2>
+          <div class="problem-grid">
+            <article class="problem-card">
+              <img class="asset-icon" src="downloadable-assets/icons/problem_megaphone.svg" alt="">
+              <h3>広告を出しても<br>反応が悪い</h3>
+              <p>広告費はかけているのに、思うように成果が出ない。</p>
+            </article>
+            <article class="problem-card">
+              <img class="asset-icon" src="downloadable-assets/icons/problem_people.svg" alt="">
+              <h3>認知が広がらず<br>売上につながらない</h3>
+              <p>SNSやチラシだけでは、なかなか広がらない。</p>
+            </article>
+            <article class="problem-card">
+              <img class="asset-icon" src="downloadable-assets/icons/problem_scribble.svg" alt="">
+              <h3>良い商品なのに<br>知られていない</h3>
+              <p>価値があるのに、そもそも知られていない。</p>
+            </article>
+          </div>
+          <p class="center-note">その原因は、「信頼されるきっかけ」がないことかもしれません。</p>
+        </div>
+      </section>
+
+      <section class="insight section">
+        <div class="container insight-grid">
+          <article>
+            <h2>メディア露出は待つのではなく<br>仕掛けるもの！</h2>
+            <p>広告をしたことがないという企業は少ないですが、ほとんどの中小企業がテーマ設定はパブリシティ（広報）を仕掛けたことがない企業も多くあります。</p>
+            <div class="mini-box">
+              <h3>パブリシティ（広報）とは？</h3>
+              <p>企業や団体が、マスメディアに対して情報提供をすることで、テレビや新聞などで報道されるよう働きかけること。</p>
+            </div>
+          </article>
+          <article>
+            <h2>なぜPRが受け入れられるのか？</h2>
+            <p>第三者の言葉には説得力があります。それは、マスコミはその会社と利害関係がなく、客観的な情報を伝えているものと消費者に思われているから。</p>
+            <div class="compare">
+              <div>
+                <b>広告（マーケティング）</b>
+                <span>主観で見える</span>
+                <small>自分のところを良く言うはず</small>
+              </div>
+              <strong>VS</strong>
+              <div>
+                <b>PR（マスコミ報道）</b>
+                <span>客観で見える</span>
+                <small>ニュースの話題にしたい理由がある</small>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2>真の価値は2次利用にあり！</h2>
+            <p>マスコミに報道された事実を資産として使える広告やホームページ、SNSなどに掲載してみてください。広告の反応率・成約率が伸びる可能性があります。</p>
+            <div class="reuse-grid">
+              <span><img src="downloadable-assets/icons/reuse_ad.svg" alt="">広告</span>
+              <span><img src="downloadable-assets/icons/reuse_sales.svg" alt="">営業・提案</span>
+              <span><img src="downloadable-assets/icons/reuse_sns_hp.svg" alt="">SNS・HP</span>
+              <span><img src="downloadable-assets/icons/reuse_recruit.svg" alt="">採用活動</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="service" class="section service">
+        <div class="container">
+          <h2 class="section-title">サービス内容</h2>
+          <ol class="service-steps">
+            <li><span>01</span><img class="service-icon" src="downloadable-assets/icons/service_lightbulb.svg" alt=""><h3>取材の切り口設計</h3><p>メディアが取り上げたくなるニュース性のある切り口を設計します。</p></li>
+            <li><span>02</span><img class="service-icon" src="downloadable-assets/icons/service_press_release.svg" alt=""><h3>プレスリリース作成</h3><p>記者の目に留まるプレスリリース原稿を作成します。</p></li>
+            <li><span>03</span><img class="service-icon" src="downloadable-assets/icons/service_handshake.svg" alt=""><h3>メディアへのアプローチ</h3><p>独自のネットワークを活用し、テレビ・新聞・Webニュースなどへ積極的にアプローチ。</p></li>
+            <li><span>04</span><img class="service-icon" src="downloadable-assets/icons/service_microphone.svg" alt=""><h3>取材獲得・メディア掲載</h3><p>取材の現場から掲載までをサポートし、魅力を最大限に引き出します。</p></li>
+            <li><span>05</span><img class="service-icon" src="downloadable-assets/icons/service_chart.svg" alt=""><h3>掲載記事の活用提案</h3><p>掲載実績を広告・SNS・営業・採用などに二次活用する方法をご提案します。</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="works" class="section works">
+        <div class="container">
+          <h2 class="section-title">実績・事例</h2>
+          <div class="works-grid">
+            <article class="case-card">
+              <div class="case-head"><span>事例 1</span><h3>飲食店</h3></div>
+              <p>飲食店のオーダーバイキングを切り口にパブリシティを仕掛け、多くのメディアに掲載。</p>
+              <div class="media-list" aria-label="掲載メディア">
+                <span>ニコニコニュース</span><span>アメーバニュース</span><span>東京バーゲンマニア</span><span>ネタりか</span><span>エキサイトニュース</span><span>マイナビニュース</span>
+              </div>
+              <div class="stats-grid">
+                <div><img src="downloadable-assets/icons/stats_growth.svg" alt=""><b>45</b><strong>倍に増加</strong><small>来店ログアクセス</small></div>
+                <div><img src="downloadable-assets/icons/stats_tv.svg" alt=""><b>80</b><strong>倍以上に増加</strong><small>テレビ放送後のアクセス</small></div>
+                <div><img src="downloadable-assets/icons/stats_calendar.svg" alt=""><b>2</b><strong>ヶ月待ちに</strong><small>予約が殺到</small></div>
+              </div>
+            </article>
+            <article class="case-card">
+              <div class="case-head"><span>事例 2</span><h3>通販会社</h3></div>
+              <p>ご近所トラブルを社会問題に絡め「騒音問題を解決する商品」という切り口でパブリシティを仕掛けました。</p>
+              <div class="media-list" aria-label="掲載メディア">
+                <span>おはよう</span><span>東京MX『モーニングCROSS』</span><span>フジサンケイビジネスアイ</span><span>日本日経MJ</span><span>日経トレンディネット</span><span>テレビ東京</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reason" class="section reason">
+        <div class="container">
+          <h2 class="section-title">選ばれる理由</h2>
+          <div class="reason-grid">
+            <article><img class="reason-icon" src="downloadable-assets/icons/reason_person.svg" alt=""><h3>個人だからこそ柔軟に対応できる</h3><p>大手にはないフットワークで、<br>スピーディーかつ柔軟に対応できます。</p></article>
+            <article><img class="reason-icon" src="downloadable-assets/icons/reason_pen.svg" alt=""><h3>売り込みではなく<br>取材される理由を作る</h3><p>取材したくなる切り口を設計し、メディアが<br>自然に取り上げたくなる仕掛けを作ります。</p></article>
+            <article><img class="reason-icon" src="downloadable-assets/icons/reason_heart.svg" alt=""><h3>中小企業に寄り添った支援ができる</h3><p>中小企業の現場や予算に合わせ、実現可能で効果の高いPRをご提案します。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="container">
+          <h2 class="section-title">よくある質問</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>実績がなくても相談できますか？</summary>
+              <p>はい、もちろん可能です。実績がない企業様でも、取材の切り口を一緒に考え、魅力を引き出すサポートをいたします。</p>
+            </details>
+            <details>
+              <summary>広告とPRの違いは何ですか？</summary>
+              <p>広告は「お金で買える情報」ですが、PRは第三者であるメディアが伝える情報です。信頼性が高く、消費者に受け入れられやすいのが特徴です。</p>
+            </details>
+            <details>
+              <summary>相談だけでも大丈夫ですか？</summary>
+              <p>はい、相談だけでも大歓迎です。まずは現状のお悩みをお聞かせください。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta section">
+        <div class="container final-grid">
+          <h2>“知られてない”を、<br><b class="final-keep">一緒に<strong>解決</strong>します。</b></h2>
+          <p>あなたの商品・サービス・会社が、<br>世の中に届く “きっかけ” を作ります。<br>まずはお気軽にご相談ください。</p>
+          <div>
+            <a class="button large" href="mailto:ad.marke.tama@gmail.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">無料相談する</a>
+            <small>相談は無料です。お気軽にご相談ください。</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="mailto:ad.marke.tama@gmail.com">ad.marke.tama@gmail.com</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </footer>
+  </body>
+</html>
